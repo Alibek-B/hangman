@@ -15,7 +15,7 @@ class Game
   # Возвращает массив букв, введенных пользователем, но отсутствующих в
   # загаданном слове (ошибочные буквы)
   def errors
-    @user_guesses - normalized_letters(@letters)
+    @user_guesses - normalized_letters
   end
 
   # Возвращает количество ошибок, сделанных пользователем
@@ -56,8 +56,8 @@ class Game
     end
   end
 
-  def normalized_letters(letters)
-    letters.map do |letter|
+  def normalized_letters
+    @letters.map do |letter|
       normalize_letter(letter)
     end
   end
@@ -74,7 +74,7 @@ class Game
 
   # Возвращает true, если не осталось неотгаданных букв (пользователь выиграл)
   def won?
-    (normalized_letters(@letters) - @user_guesses).empty?
+    (normalized_letters - @user_guesses).empty?
   end
 
   # Возвращает загаданное слово, склеивая его из загаданных букв
