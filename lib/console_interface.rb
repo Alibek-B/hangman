@@ -1,4 +1,4 @@
-require 'colorize'
+require "colorize"
 
 class ConsoleInterface
   # В константе FIGURES будут лежать все текстовые файлы из папки figures,
